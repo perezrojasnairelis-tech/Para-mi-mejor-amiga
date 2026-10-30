@@ -1,0 +1,590 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --rosa: #f3b6dc;
+    --rosa-fuerte: #e58ac5;
+    --morado: #a77bd4;
+    --negro: #100d17;
+    --blanco: #fff5fc;
+    --texto: #e9dced;
+}
+
+body {
+    background: var(--negro);
+    color: var(--blanco);
+    font-family: Georgia, serif;
+    overflow-x: hidden;
+}
+
+button {
+    font-family: Georgia, serif;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.oculto {
+    display: none !important;
+}
+
+/* PANTALLA INICIAL */
+
+#inicio {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(166,91,181,.25), transparent 35%),
+        radial-gradient(circle at 80% 80%, rgba(206,110,171,.20), transparent 35%),
+        linear-gradient(135deg, #100d17, #24152f, #160e20);
+}
+
+.estrellas {
+    position: absolute;
+    top: 12%;
+    width: 100%;
+    text-align: center;
+    color: var(--rosa);
+    font-size: 1.5rem;
+    letter-spacing: 10px;
+    animation: flotar 4s ease-in-out infinite;
+}
+
+.bienvenida {
+    width: 90%;
+    max-width: 600px;
+    padding: 55px 30px;
+    text-align: center;
+    background: rgba(255,255,255,.045);
+    border: 1px solid rgba(243,182,220,.35);
+    border-radius: 25px;
+    box-shadow: 0 0 30px rgba(177,103,194,.15);
+    backdrop-filter: blur(12px);
+    animation: aparecer 1s ease;
+}
+
+.subtitulo {
+    color: var(--rosa);
+    font-size: .72rem;
+    letter-spacing: 2.5px;
+    line-height: 1.8;
+    margin-bottom: 17px;
+}
+
+.bienvenida h1 {
+    font-size: clamp(2.7rem, 7vw, 4.5rem);
+    margin-bottom: 20px;
+}
+
+.bienvenida h1 span,
+.contenido-universo h2 span {
+    color: var(--rosa-fuerte);
+}
+
+.descripcion {
+    color: var(--texto);
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.bienvenida button,
+.contenido-universo button {
+    background: linear-gradient(135deg, var(--rosa-fuerte), var(--morado));
+    color: #211329;
+    border: none;
+    border-radius: 30px;
+    padding: 13px 27px;
+    font-size: .95rem;
+    box-shadow: 0 0 20px rgba(229,138,197,.25);
+}
+
+.bienvenida button:hover,
+.contenido-universo button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 25px rgba(229,138,197,.5);
+}
+
+.pie {
+    color: #cbb6d4;
+    font-size: .8rem;
+    margin-top: 25px;
+}
+
+/* UNIVERSO Y MENÚ */
+
+.universo {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 10% 10%, rgba(146,91,179,.13), transparent 30%),
+        radial-gradient(circle at 90% 50%, rgba(205,120,176,.10), transparent 35%),
+        linear-gradient(180deg, #120e1b, #21152d, #130e1b);
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 22px;
+    padding: 22px 12px;
+    background: rgba(16,13,23,.85);
+    border-bottom: 1px solid rgba(243,182,220,.2);
+}
+
+.menu a {
+    color: var(--texto);
+    text-decoration: none;
+    font-size: .85rem;
+    transition: .3s;
+}
+
+.menu a:hover {
+    color: var(--rosa);
+    text-shadow: 0 0 10px var(--rosa);
+}
+
+/* BIENVENIDA */
+
+.contenido-universo {
+    max-width: 760px;
+    width: 90%;
+    margin: 55px auto 70px;
+    padding: 45px 30px;
+    text-align: center;
+    background: rgba(255,255,255,.045);
+    border: 1px solid rgba(243,182,220,.28);
+    border-radius: 23px;
+    box-shadow: 0 0 30px rgba(177,103,194,.1);
+}
+
+.contenido-universo h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 20px;
+}
+
+.mensaje {
+    color: var(--texto);
+    line-height: 1.9;
+    font-size: .98rem;
+}
+
+.frase {
+    color: var(--rosa);
+    font-style: italic;
+    margin-top: 25px;
+    line-height: 1.8;
+}
+
+.separador {
+    color: var(--rosa-fuerte);
+    margin: 30px 0;
+    letter-spacing: 4px;
+}
+
+/* SECCIONES */
+
+.sobre-naty,
+.fotos-naty,
+.bts,
+.series,
+.carta {
+    padding: 65px 7%;
+    text-align: center;
+}
+
+.sobre-naty h2,
+.fotos-naty h2,
+.bts h2,
+.series h2,
+.carta h2 {
+    color: var(--rosa);
+    font-size: clamp(1.9rem, 5vw, 2.5rem);
+    margin-bottom: 16px;
+}
+
+.introduccion {
+    max-width: 650px;
+    margin: 0 auto 30px;
+    color: var(--texto);
+    line-height: 1.8;
+    font-size: .95rem;
+}
+
+.frase-naty {
+    color: var(--rosa);
+    font-style: italic;
+    margin-top: 25px;
+    line-height: 1.8;
+}
+
+/* TARJETAS DE NATY */
+
+.tarjetas-naty {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    max-width: 900px;
+    margin: 35px auto;
+}
+
+.tarjeta-naty {
+    padding: 25px 18px;
+    background: rgba(255,255,255,.055);
+    border: 1px solid rgba(243,182,220,.22);
+    border-radius: 18px;
+    transition: .3s;
+}
+
+.tarjeta-naty:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(229,138,197,.18);
+}
+
+.icono {
+    display: block;
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.tarjeta-naty h3 {
+    color: var(--rosa);
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+}
+
+.tarjeta-naty p {
+    color: var(--texto);
+    font-size: .9rem;
+    line-height: 1.7;
+}
+
+/* FOTOS DE NATY */
+
+.galeria-naty {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    max-width: 900px;
+    margin: 35px auto;
+}
+
+.galeria-naty figure {
+    padding: 10px;
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(243,182,220,.35);
+    border-radius: 15px;
+    transition: .3s;
+}
+
+.galeria-naty figure:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 20px rgba(229,138,197,.25);
+}
+
+.galeria-naty img {
+    display: block;
+    width: 100%;
+    height: 175px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.galeria-naty figcaption {
+    color: var(--rosa);
+    font-size: .82rem;
+    padding: 12px 3px 4px;
+}
+
+/* BTS Y TAEHYUNG */
+
+.bts-contenido {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    max-width: 760px;
+    margin: 35px auto;
+}
+
+.bts-tarjeta,
+.taehyung-tarjeta {
+    padding: 18px;
+    background: rgba(255,255,255,.055);
+    border: 1px solid rgba(208,164,235,.3);
+    border-radius: 18px;
+    transition: .3s;
+}
+
+.bts-tarjeta:hover,
+.taehyung-tarjeta:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(180,115,220,.2);
+}
+
+.bts-tarjeta img,
+.taehyung-tarjeta img {
+    display: block;
+    width: 100%;
+    max-width: 220px;
+    height: 180px;
+    object-fit: cover;
+    margin: 0 auto 17px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,190,230,.35);
+}
+
+.bts-tarjeta h3,
+.taehyung-tarjeta h3 {
+    color: var(--rosa);
+    font-size: 1.35rem;
+    margin-bottom: 12px;
+}
+
+.bts-tarjeta p,
+.taehyung-tarjeta p {
+    color: var(--texto);
+    font-size: .88rem;
+    line-height: 1.7;
+}
+
+.bts-tarjeta span,
+.taehyung-tarjeta span {
+    display: block;
+    color: var(--morado);
+    font-size: .85rem;
+    margin-top: 15px;
+}
+
+.bias {
+    color: var(--rosa-fuerte) !important;
+    font-style: italic;
+    margin-bottom: 8px;
+}
+
+.subtitulo-galeria {
+    color: var(--rosa);
+    font-size: 1rem;
+    letter-spacing: 2px;
+    margin: 35px 0 20px;
+}
+
+.galeria-taehyung {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 18px;
+    max-width: 650px;
+    margin: 25px auto;
+}
+
+.galeria-taehyung .foto-recuerdo {
+    width: 190px;
+}
+
+.galeria-taehyung img {
+    width: 100%;
+    height: 155px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* SERIES Y ANIME */
+
+.series-contenido {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    max-width: 800px;
+    margin: 35px auto;
+}
+
+.serie-tarjeta {
+    background: rgba(255,255,255,.055);
+    border: 1px solid rgba(232,180,230,.3);
+    border-radius: 18px;
+    overflow: hidden;
+    text-align: left;
+    transition: .3s;
+}
+
+.serie-tarjeta:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(214,137,220,.2);
+}
+
+.serie-tarjeta img {
+    display: block;
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.serie-info {
+    padding: 17px;
+}
+
+.serie-info span {
+    color: var(--rosa);
+    font-size: .68rem;
+    letter-spacing: 1.5px;
+}
+
+.serie-info h3 {
+    color: var(--blanco);
+    font-size: 1.25rem;
+    margin: 10px 0;
+}
+
+.serie-info p {
+    color: var(--texto);
+    font-size: .87rem;
+    line-height: 1.7;
+}
+
+/* CARTA */
+
+.carta-contenido {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 35px;
+    text-align: left;
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(243,182,220,.3);
+    border-radius: 18px;
+    color: var(--texto);
+    line-height: 1.9;
+    font-size: .93rem;
+}
+
+.titulo-carta {
+    color: var(--rosa);
+    font-size: 1.35rem;
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+.carta-contenido p + p {
+    margin-top: 18px;
+}
+
+.carta-contenido .firma {
+    color: var(--rosa);
+    font-style: italic;
+    text-align: right;
+    margin-top: 25px;
+}
+
+/* PIE DE PÁGINA */
+
+.pie-final {
+    text-align: center;
+    padding: 28px 15px 40px;
+    border-top: 1px solid rgba(243,182,220,.2);
+    color: var(--rosa);
+    line-height: 1.9;
+}
+
+.pie-final span {
+    color: var(--texto);
+    font-size: .82rem;
+}
+
+/* ANIMACIONES */
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes flotar {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* TABLETS */
+
+@media (max-width: 800px) {
+
+    .tarjetas-naty {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .galeria-naty {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+/* CELULARES */
+
+@media (max-width: 550px) {
+
+    .bienvenida {
+        padding: 40px 20px;
+    }
+
+    .menu {
+        gap: 13px;
+    }
+
+    .menu a {
+        font-size: .76rem;
+    }
+
+    .contenido-universo {
+        padding: 35px 20px;
+    }
+
+    .tarjetas-naty,
+    .bts-contenido,
+    .series-contenido,
+    .galeria-naty {
+        grid-template-columns: 1fr;
+    }
+
+    .bts-tarjeta img,
+    .taehyung-tarjeta img {
+        max-width: 200px;
+        height: 165px;
+    }
+
+    .serie-tarjeta img {
+        height: 180px;
+    }
+
+    .galeria-taehyung .foto-recuerdo {
+        width: 180px;
+    }
+
+    .galeria-taehyung img {
+        height: 145px;
+    }
+
+    .galeria-naty img {
+        height: 190px;
+    }
+
+    .carta-contenido {
+        padding: 25px 20px;
+    }
+
+}
